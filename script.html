@@ -1,0 +1,268 @@
+```html
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Railway UA — Квитки на потяг</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Шапка сайту -->
+    <header class="header">
+        <a href="#" class="logo">
+            <span class="logo-icon">🚆</span>
+            Railway<span>UA</span>
+        </a>
+
+        <nav class="navigation">
+            <a href="#home">Головна</a>
+            <a href="#tickets">Квитки</a>
+            <a href="#schedule">Розклад</a>
+            <a href="#my-tickets">Мої квитки</a>
+        </nav>
+
+        <a href="#tickets" class="header-button">Знайти квиток</a>
+    </header>
+
+
+    <!-- Головний банер -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+            <div class="hero-label">
+                ● ПОДОРОЖУЙ УКРАЇНОЮ
+            </div>
+
+            <h1>
+                Твоя подорож<br>
+                <span>починається тут.</span>
+            </h1>
+
+            <p>
+                Обирай напрямок, знаходь потяг
+                та плануй наступну подорож Україною.
+            </p>
+
+            <a href="#tickets" class="hero-button">
+                Купити квиток →
+            </a>
+        </div>
+
+        <div class="hero-info">
+            <div>
+                <strong>Зручно</strong>
+                <span>Шукай рейси онлайн</span>
+            </div>
+
+            <div>
+                <strong>Швидко</strong>
+                <span>Обирай свій маршрут</span>
+            </div>
+
+            <div>
+                <strong>Україна</strong>
+                <span>Подорожуй країною</span>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Пошук квитків -->
+    <section class="booking-section" id="tickets">
+
+        <div class="section-heading">
+            <span class="section-label">ПЛАНУЙ ПОЇЗДКУ</span>
+            <h2>Знайди свій потяг</h2>
+            <p>Вкажи маршрут і дату подорожі.</p>
+        </div>
+
+        <form class="booking-form" id="search-form">
+
+            <div class="input-group">
+                <label for="from">Звідки</label>
+
+                <select id="from" required>
+                    <option value="Київ">Київ</option>
+                    <option value="Львів">Львів</option>
+                    <option value="Одеса">Одеса</option>
+                    <option value="Харків">Харків</option>
+                    <option value="Дніпро">Дніпро</option>
+                    <option value="Івано-Франківськ">
+                        Івано-Франківськ
+                    </option>
+                </select>
+            </div>
+
+            <button
+                type="button"
+                class="swap-button"
+                id="swap-cities"
+                title="Поміняти міста місцями"
+            >
+                ⇄
+            </button>
+
+            <div class="input-group">
+                <label for="to">Куди</label>
+
+                <select id="to" required>
+                    <option value="Львів">Львів</option>
+                    <option value="Київ">Київ</option>
+                    <option value="Одеса">Одеса</option>
+                    <option value="Харків">Харків</option>
+                    <option value="Дніпро">Дніпро</option>
+                    <option value="Івано-Франківськ">
+                        Івано-Франківськ
+                    </option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="date">Дата поїздки</label>
+                <input type="date" id="date" required>
+            </div>
+
+            <button type="submit" class="search-button">
+                🔍 Знайти потяг
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- Розклад потягів -->
+    <section class="schedule-section" id="schedule">
+
+        <div class="section-heading">
+            <span class="section-label">РОЗКЛАД</span>
+            <h2>Доступні потяги</h2>
+            <p id="results-description">
+                Обери маршрут, щоб переглянути демонстраційні рейси.
+            </p>
+        </div>
+
+        <div id="train-results" class="train-results">
+
+            <div class="empty-state">
+                <div class="empty-icon">🚄</div>
+                <h3>Куди вирушимо?</h3>
+                <p>Введи маршрут вище та натисни «Знайти потяг».</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Мої квитки -->
+    <section class="my-tickets-section" id="my-tickets">
+
+        <div class="section-heading">
+            <span class="section-label">ТВОЇ ПОДОРОЖІ</span>
+            <h2>Мої квитки</h2>
+            <p>Тут з'являтимуться квитки, оформлені в цій демоверсії.</p>
+        </div>
+
+        <div id="my-tickets-list" class="my-tickets-list">
+            <div class="empty-state">
+                <div class="empty-icon">🎫</div>
+                <h3>Поки що квитків немає</h3>
+                <p>Знайди потяг  оформи свій перший тестовий квиток.</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Підвал -->
+    <footer class="footer">
+
+        <a href="#home" class="logo footer-logo">
+            🚆 Railway<span>UA</span>
+        </a>
+
+        <p>Навчальний проєкт про залізничні подорожі Україною.</p>
+
+        <p class="footer-small">
+            Сайт був створений Машіко Андрієм
+        </p>
+
+        <p>© 2026 Railway UA</p>
+
+    </footer>
+
+
+    <!-- Модальне вікно оформлення квитка -->
+    <div class="modal-overlay" id="ticket-modal">
+
+        <div class="modal">
+
+            <button
+                type="button"
+                class="close-modal"
+                id="close-modal"
+                aria-label="Закрити"
+            >
+                
+            </button>
+
+            <div class="modal-icon">🎫</div>
+
+            <h2>Оформлення квитка</h2>
+
+            <p id="selected-train-info"></p>
+
+            <form id="passenger-form">
+
+                <div class="input-group">
+                    <label for="passenger-name">Ім'я пасажира</label>
+
+                    <input
+                        type="text"
+                        id="passenger-name"
+                        placeholder="Наприклад, Андрій"
+                        maxlength="60"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="seat">Місце у вагоні</label>
+
+                    <select id="seat" required>
+                        <option value="">Обери місце</option>
+                        <option value="1">Місце 1</option>
+                        <option value="2">Місце 2</option>
+                        <option value="3">Місце 3</option>
+                        <option value="4">Місце 4</option>
+                        <option value="5">Місце 5</option>
+                        <option value="6">Місце 6</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="search-button">
+                    Оформити тестовий квиток
+                </button>
+
+            </form>
+
+            <p class="demo-notice">
+                Це демонстрація. Оплата не здійснюється.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
