@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Alert — Запізнення поїздів</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">🚆 Railway <span>Alert</span></div>
+
+```
+<nav>
+    <a href="#">Головна</a>
+    <a href="#delays">Запізнення</a>
+    <a href="#stations">Вокзали</a>
+    <a href="#contacts">Контакти</a>
+</nav>
+```
+
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Запізнення поїздів</h1>
+        <p>Слідкуйте за рухом поїздів та отримуйте інформацію про затримки.</p>
+        <a href="#delays" class="hero-button">Переглянути затримки</a>
+    </div>
+</section>
+
+<section class="statistics">
+
+```
+<div class="stat-card">
+    <h2 id="total">6</h2>
+    <p>Усього поїздів</p>
+</div>
+
+<div class="stat-card">
+    <h2 id="delayed">3</h2>
+    <p>Із запізненням</p>
+</div>
+
+<div class="stat-card">
+    <h2 id="ontime">2</h2>
+    <p>За розкладом</p>
+</div>
+
+<div class="stat-card">
+    <h2 id="cancelled">1</h2>
+    <p>Скасовано</p>
+</div>
+```
+
+</section>
+
+<section class="main-section" id="delays">
+
+```
+<div class="section-title">
+    <h2>🚨 Інформація про поїзди</h2>
+    <p>Демонстраційний моніторинг руху</p>
+</div>
+
+<div class="filters">
+
+    <input
+        type="text"
+        id="search"
+        placeholder="Введіть номер поїзда..."
+    >
+
+    <select id="station">
+        <option value="all">Усі напрямки</option>
+        <option value="Київ">Київ</option>
+        <option value="Львів">Львів</option>
+        <option value="Одеса">Одеса</option>
+        <option value="Харків">Харків</option>
+    </select>
+
+    <button onclick="showTrains()">Знайти</button>
+
+</div>
+
+<div id="train-list" class="train-list"></div>
+```
+
+</section>
+
+<section class="notice" id="stations">
+    <h2>ℹ Інформація для пасажирів</h2>
+    <p>
+        Інформація про запізнення допомагає пасажирам
+        планувати свої подорожі та стежити за змінами руху.
+    </p>
+</section>
+
+<button onclick="window.location.href='script.html'">
+    Повернутися назад
+</button>
+
+<footer id="contacts">
+    <div class="logo">🚆 Railway <span>Alert</span></div>
+    <p>Інформаційний портал залізничного транспорту</p>
+    <p>© 2026 Railway Alert. Усі права захищені.</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
