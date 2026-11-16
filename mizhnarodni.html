@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RailLine — Міжнародні рейси</title>
+    <link rel="stylesheet" href="mizhnarodni.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">🚆 RailLine</div>
+
+    <nav>
+        <a href="index.html">Головна</a>
+        <a href="zapiznec.html">Запізнення</a>
+        <a href="mizhnarodni.html" class="active">Міжнародні рейси</a>
+    </nav>
+
+    <a href="https://booking.uz.gov.ua/" target="_blank" class="header-button">
+        Купити квиток
+    </a>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <p class="small-title">RAILLINE INTERNATIONAL</p>
+        <h1>Подорожуй залізницею за кордон</h1>
+        <p>
+            Дізнавайся про міжнародні маршрути, розклад руху
+            та можливі затримки поїздів.
+        </p>
+
+        <a href="#routes" class="main-button">Переглянути рейси</a>
+    </div>
+</section>
+
+<section class="intro">
+    <h2>Міжнародне залізничне сполучення</h2>
+    <p>
+        Залізницею можна подорожувати з України до різних країн Європи.
+        Обирай напрямок, переглядай інформацію про рейси та плануй свою подорож.
+    </p>
+</section>
+
+<section class="routes-section" id="routes">
+    <div class="section-title">
+        <p>НАПРЯМКИ</p>
+        <h2>Популярні міжнародні рейси</h2>
+    </div>
+
+    <div class="route-grid">
+
+        <div class="route-card">
+            <div class="country-icon">🇵🇱</div>
+            <h3>Польща</h3>
+            <p>Київ — Варшава</p>
+            <span>Міжнародний напрямок</span>
+        </div>
+
+        <div class="route-card">
+            <div class="country-icon">🇭🇺</div>
+            <h3>Угорщина</h3>
+            <p>Київ — Будапешт</p>
+            <span>Міжнародний напрямок</span>
+        </div>
+
+        <div class="route-card">
+            <div class="country-icon">🇦🇹</div>
+            <h3>Австрія</h3>
+            <p>Київ — Відень</p>
+            <span>Міжнародний напрямок</span>
+        </div>
+
+        <div class="route-card">
+            <div class="country-icon">🇸🇰</div>
+            <h3>Словаччина</h3>
+            <p>Мукачево — Кошице</p>
+            <span>Міжнародний напрямок</span>
+        </div>
+
+    </div>
+</section>
+
+<section class="schedule-section">
+    <div class="section-title">
+        <p>РОЗКЛАД</p>
+        <h2>Інформація про міжнародні поїзди</h2>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Поїзд</th>
+                    <th>Маршрут</th>
+                    <th>Відправлення</th>
+                    <th>Прибуття</th>
+                    <th>Статус</th>
+                </tr>
+            </thead>
+
+            <tbody id="internationalTable">
+
+                <tr>
+                    <td>№ 067</td>
+                    <td>Київ — Варшава</td>
+                    <td>18:30</td>
+                    <td>09:00</td>
+                    <td><span class="status on-time">За розкладом</span></td>
+                </tr>
+
+                <tr>
+                    <td>№ 009</td>
+                    <td>Київ — Будапешт</td>
+                    <td>12:00</td>
+                    <td>06:30</td>
+                    <td><span class="status delayed">Запізнення 25 хв</span></td>
+                </tr>
+
+                <tr>
+                    <td>№ 749</td>
+                    <td>Мукачево — Кошице</td>
+                    <td>10:30</td>
+                    <td>13:00</td>
+                    <td><span class="status on-time">За розкладом</span></td>
+                </tr>
+
+                <tr>
+                    <td>№ 351</td>
+                    <td>Київ — Відень</td>
+                    <td>20:00</td>
+                    <td>11:30</td>
+                    <td><span class="status delayed">Запізнення 40 хв</span></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <p class="table-note">
+        * Наведені рейси, час і статуси є демонстраційними прикладами.
+        Це не актуальний розклад і не інформація про реальні затримки.
+    </p>
+</section>
+
+<section class="delay-section" id="delays">
+    <div class="section-title">
+        <p>ОНЛАЙН-ІНФОРМАЦІЯ</p>
+        <h2>Запізнення міжнародних поїздів</h2>
+        <p class="section-description">
+            Перевіряй демонстраційні дані про затримки міжнародних рейсів.
+        </p>
+    </div>
+
+    <div class="delay-grid">
+
+        <div class="delay-card">
+            <div class="delay-number">№ 009</div>
+            <h3>Київ — Будапешт</h3>
+            <p>Час затримки</p>
+            <strong>25 хвилин</strong>
+            <span class="status delayed">Затримується</span>
+        </div>
+
+        <div class="delay-card">
+            <div class="delay-number">№ 351</div>
+            <h3>Київ — Відень</h3>
+            <p>Час затримки</p>
+            <strong>40 хвилин</strong>
+            <span class="status delayed">Затримується</span>
+        </div>
+
+        <div class="delay-card">
+            <div class="delay-number">№ 067</div>
+            <h3>Київ — Варшава</h3>
+            <p>Поточний статус</p>
+            <strong>Без затримки</strong>
+            <span class="status on-time">За розкладом</span>
+        </div>
+
+    </div>
+</section>
+
+<section class="info-section">
+    <h2>Чому можуть затримуватися міжнародні поїзди?</h2>
+
+    <div class="info-grid">
+
+        <div class="info-card">
+            <div>🌧️</div>
+            <h3>Погодні умови</h3>
+            <p>Сильний дощ, сніг або інші складні погодні умови.</p>
+        </div>
+
+        <div class="info-card">
+            <div>🚧</div>
+            <h3>Ремонт колій</h3>
+            <p>Планові ремонтні роботи на залізничних ділянках.</p>
+        </div>
+
+        <div class="info-card">
+            <div>🛂</div>
+            <h3>Прикордонний контроль</h3>
+            <p>Перевірка документів та проходження митного контролю.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="booking-banner">
+    <h2>Плануєш подорож за кордон?</h2>
+    <p>Перевіряй доступні квитки на офіційному сайті Укрзалізниці.</p>
+    <a href="https://booking.uz.gov.ua/" target="_blank">
+        Перейти до купівлі квитків →
+    </a>
+</section>
+
+<footer class="footer">
+    <div class="footer-content">
+
+        <div>
+            <h2>🚆 RailLine</h2>
+            <p>Твій залізничний інформаційний портал.</p>
+        </div>
+
+        <div>
+            <h3>Сторінки</h3>
+            <a href="index.html">Головна</a>
+            <a href="zapiznec.html">Запізнення поїздів</a>
+            <a href="mizhnarodni.html">Міжнародні рейси</a>
+        </div>
+
+        <div>
+            <h3>Корисні посилання</h3>
+            <a href="https://uz.gov.ua/" target="_blank">Укрзалізниця</a>
+            <a href="https://booking.uz.gov.ua/" target="_blank">Купівля квитків</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 RailLine. Навчальний проєкт.
+    </div>
+</footer>
+
+<script src="mizhnarodni.js"></script>
+</body>
+</html>

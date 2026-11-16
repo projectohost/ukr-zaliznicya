@@ -1,114 +1,492 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html lang="uk">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Railway Alert — Запізнення поїздів</title>
-    <link rel="stylesheet" href="style.css">
+
+    <title>RailLine — Запізнення поїздів</title>
+
+    <link rel="stylesheet" href="zapiznec.css">
+
 </head>
+
 <body>
 
-<header>
-    <div class="logo">🚆 Railway <span>Alert</span></div>
+<!-- ШАПКА -->
 
-```
-<nav>
-    <a href="#">Головна</a>
-    <a href="#delays">Запізнення</a>
-    <a href="#stations">Вокзали</a>
-    <a href="#contacts">Контакти</a>
-</nav>
-```
+<header>
+
+    <div class="logo">
+        🚆 RailLine
+    </div>
+
+    <nav>
+        <a href="index.html">Головна</a>
+        <a href="zapiznec.html">Запізнення</a>
+        <a href="mizhnarodni.html">Міжнародні рейси</a>
+    </nav>
+
+    <a href="https://booking.uz.gov.ua/" class="header-button">
+        Купити квиток
+    </a>
 
 </header>
 
+
+<!-- ГОЛОВНИЙ БАНЕР -->
+
 <section class="hero">
+
     <div class="hero-content">
-        <h1>Запізнення поїздів</h1>
-        <p>Слідкуйте за рухом поїздів та отримуйте інформацію про затримки.</p>
-        <a href="#delays" class="hero-button">Переглянути затримки</a>
+
+        <span>RAILLINE INFORMATION</span>
+
+        <h1>
+            Запізнення<br>
+            <span>поїздів</span>
+        </h1>
+
+        <p>
+            Перевіряй інформацію про рух поїздів,
+            затримки та час прибуття.
+            Будь у курсі своєї подорожі!
+        </p>
+
+        <a href="#schedule" class="hero-button">
+            Перевірити поїзд ↓
+        </a>
+
     </div>
-</section>
-
-<section class="statistics">
-
-```
-<div class="stat-card">
-    <h2 id="total">6</h2>
-    <p>Усього поїздів</p>
-</div>
-
-<div class="stat-card">
-    <h2 id="delayed">3</h2>
-    <p>Із запізненням</p>
-</div>
-
-<div class="stat-card">
-    <h2 id="ontime">2</h2>
-    <p>За розкладом</p>
-</div>
-
-<div class="stat-card">
-    <h2 id="cancelled">1</h2>
-    <p>Скасовано</p>
-</div>
-```
 
 </section>
 
-<section class="main-section" id="delays">
 
-```
-<div class="section-title">
-    <h2>🚨 Інформація про поїзди</h2>
-    <p>Демонстраційний моніторинг руху</p>
-</div>
+<!-- ПОШУК ПОЇЗДІВ -->
 
-<div class="filters">
+<section class="search-section" id="schedule">
 
-    <input
-        type="text"
-        id="search"
-        placeholder="Введіть номер поїзда..."
-    >
+    <div class="section-heading">
 
-    <select id="station">
-        <option value="all">Усі напрямки</option>
-        <option value="Київ">Київ</option>
-        <option value="Львів">Львів</option>
-        <option value="Одеса">Одеса</option>
-        <option value="Харків">Харків</option>
-    </select>
+        <span>TRAIN INFORMATION</span>
 
-    <button onclick="showTrains()">Знайти</button>
+        <h2>Знайти свій поїзд</h2>
 
-</div>
+        <p>
+            Введи номер поїзда або назву маршруту.
+        </p>
 
-<div id="train-list" class="train-list"></div>
-```
+    </div>
 
-</section>
 
-<section class="notice" id="stations">
-    <h2>ℹ Інформація для пасажирів</h2>
-    <p>
-        Інформація про запізнення допомагає пасажирам
-        планувати свої подорожі та стежити за змінами руху.
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="trainSearch"
+            placeholder="Наприклад: 042 або Київ"
+        >
+
+        <button onclick="searchTrain()">
+            🔍 Пошук
+        </button>
+
+        <button onclick="resetSearch()" class="reset-button">
+            Скинути
+        </button>
+
+    </div>
+
+
+    <!-- СТАТИСТИКА -->
+
+    <div class="statistics">
+
+        <div class="stat-card">
+
+            <span>🚆</span>
+
+            <h3>04</h3>
+
+            <p>Поїзди в таблиці</p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>🟢</span>
+
+            <h3>02</h3>
+
+            <p>За розкладом</p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>🟠</span>
+
+            <h3>02</h3>
+
+            <p>Із затримкою</p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ТАБЛИЦЯ -->
+
+    <div class="table-container">
+
+        <table id="trainTable">
+
+            <thead>
+
+                <tr>
+                    <th>№ поїзда</th>
+                    <th>Маршрут</th>
+                    <th>Відправлення</th>
+                    <th>Прибуття</th>
+                    <th>Статус</th>
+                    <th>Затримка</th>
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                <tr>
+
+                    <td>042</td>
+
+                    <td>Київ — Львів</td>
+
+                    <td>08:30</td>
+
+                    <td>14:45</td>
+
+                    <td>
+                        <span class="status ontime">
+                            За розкладом
+                        </span>
+                    </td>
+
+                    <td>0 хв.</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>081</td>
+
+                    <td>Київ — Ужгород</td>
+
+                    <td>10:15</td>
+
+                    <td>20:40</td>
+
+                    <td>
+                        <span class="status delayed">
+                            Затримується
+                        </span>
+                    </td>
+
+                    <td>25 хв.</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>105</td>
+
+                    <td>Київ — Одеса</td>
+
+                    <td>12:00</td>
+
+                    <td>19:20</td>
+
+                    <td>
+                        <span class="status ontime">
+                            За розкладом
+                        </span>
+                    </td>
+
+                    <td>0 хв.</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>045</td>
+
+                    <td>Харків — Львів</td>
+
+                    <td>15:30</td>
+
+                    <td>07:10</td>
+
+                    <td>
+                        <span class="status delayed">
+                            Затримується
+                        </span>
+                    </td>
+
+                    <td>40 хв.</td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <p class="warning">
+        ⚠️ Увага! Усі дані в таблиці демонстраційні.
+        Вони не відображають реальний рух поїздів.
     </p>
+
 </section>
 
-<button onclick="window.location.href='script.html'">
-    Повернутися назад
-</button>
 
-<footer id="contacts">
-    <div class="logo">🚆 Railway <span>Alert</span></div>
-    <p>Інформаційний портал залізничного транспорту</p>
-    <p>© 2026 Railway Alert. Усі права захищені.</p>
+<!-- ПОЯСНЕННЯ СТАТУСІВ -->
+
+<section class="status-section">
+
+    <div class="section-heading">
+
+        <span>TRAIN STATUS</span>
+
+        <h2>Статуси поїздів</h2>
+
+        <p>
+            Що означає кожен статус?
+        </p>
+
+    </div>
+
+
+    <div class="status-container">
+
+        <div class="status-card">
+
+            <div class="status-icon green">✓</div>
+
+            <h3>За розкладом</h3>
+
+            <p>
+                Поїзд рухається відповідно
+                до встановленого розкладу.
+            </p>
+
+        </div>
+
+
+        <div class="status-card">
+
+            <div class="status-icon orange">!</div>
+
+            <h3>Затримується</h3>
+
+            <p>
+                Час прибуття поїзда може
+                бути змінений.
+            </p>
+
+        </div>
+
+
+        <div class="status-card">
+
+            <div class="status-icon blue">✓</div>
+
+            <h3>Прибув</h3>
+
+            <p>
+                Поїзд завершив рух
+                та прибув на станцію.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ПРИЧИНИ ЗАТРИМОК -->
+
+<section class="reasons">
+
+    <div class="section-heading">
+
+        <span>INFORMATION</span>
+
+        <h2>Причини затримок поїздів</h2>
+
+    </div>
+
+
+    <div class="reason-container">
+
+        <div class="reason-card">
+
+            <div>🚧</div>
+
+            <h3>Ремонт колій</h3>
+
+            <p>
+                Планові ремонтні роботи
+                на залізничних коліях.
+            </p>
+
+        </div>
+
+
+        <div class="reason-card">
+
+            <div>🌧️</div>
+
+            <h3>Погодні умови</h3>
+
+            <p>
+                Сильні опади, вітер
+                та інші погодні явища.
+            </p>
+
+        </div>
+
+
+        <div class="reason-card">
+
+            <div>⚙️</div>
+
+            <h3>Технічні причини</h3>
+
+            <p>
+                Технічне обслуговування
+                залізничного транспорту.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- РЕКЛАМНИЙ БЛОК -->
+
+<section class="advertising">
+
+    <div>
+
+        <span>RAILLINE TRAVEL</span>
+
+        <h2>
+            Плануй подорож<br>
+            без зайвих турбот!
+        </h2>
+
+        <p>
+            Обирай напрямок та купуй квитки
+            на залізничні рейси.
+        </p>
+
+        <a href="https://booking.uz.gov.ua/">
+            Купити квиток →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ПІДВАЛ -->
+
+<footer>
+
+    <div class="footer-container">
+
+
+        <div class="footer-about">
+
+            <h2>🚆 RailLine</h2>
+
+            <p>
+                Інформаційний портал
+                для залізничних подорожей.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h3>Навігація</h3>
+
+            <a href="index.html">Головна</a>
+
+            <a href="zapiznec.html">Запізнення</a>
+
+            <a href="mizhnarodni.html">Міжнародні рейси</a>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h3>Корисні посилання</h3>
+
+            <a href="https://booking.uz.gov.ua/">
+                Купівля квитків
+            </a>
+
+            <a href="https://uz.gov.ua/">
+                Укрзалізниця
+            </a>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h3>Соціальні мережі</h3>
+
+            <a href="https://www.instagram.com/">Instagram</a>
+
+            <a href="https://www.facebook.com/">Facebook</a>
+
+            <a href="https://www.youtube.com/">YouTube</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>© 2026 RailLine. Усі права захищені.</p>
+
+        <a href="index.html">На головну ↑</a>
+
+    </div>
+
 </footer>
 
-<script src="script.js"></script>
+
+<script src="zapiznec.js"></script>
 
 </body>
 </html>
+

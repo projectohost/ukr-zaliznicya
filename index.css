@@ -1,15 +1,5 @@
 
-:root {
-    --blue: #102b46;
-    --blue-light: #19466d;
-    --green: #16a66a;
-    --green-hover: #118653;
-    --background: #f4f7fb;
-    --text: #172b40;
-    --muted: #758397;
-    --white: #ffffff;
-    --border: #e3e9f0;
-}
+/* ЗАГАЛЬНІ НАЛАШТУВАННЯ */
 
 * {
     margin: 0;
@@ -17,613 +7,531 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7f8;
+    color: #172b35;
+}
+
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px;
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background: var(--background);
-    color: var(--text);
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-button,
-input,
-select {
-    font: inherit;
-}
-
-button,
-a,
-select {
-    -webkit-tap-highlight-color: transparent;
-}
 
 /* ШАПКА */
 
-.header {
-    height: 86px;
-    padding: 0 7%;
-    background: var(--white);
+header {
+    height: 85px;
+    background: #ffffff;
+    padding: 0 8%;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 25px;
-    border-bottom: 1px solid var(--border);
+
+    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+
+    position: relative;
+    z-index: 10;
 }
 
 .logo {
+    font-size: 29px;
+    font-weight: bold;
+    color: #087b50;
+}
+
+nav {
     display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--blue);
-    font-size: 23px;
-    font-weight: 800;
-    white-space: nowrap;
+    gap: 35px;
 }
 
-.logo span:last-child {
-    color: var(--green);
+nav a {
+    text-decoration: none;
+    color: #263c47;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-.logo-icon {
-    font-size: 27px;
-}
-
-.navigation {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.navigation a {
-    color: #657489;
-    font-size: 14px;
-    font-weight: 600;
-    transition: color 0.2s;
-}
-
-.navigation a:hover {
-    color: var(--green);
+nav a:hover {
+    color: #07945c;
 }
 
 .header-button {
-    background: var(--blue);
+    background: #087b50;
     color: white;
-    padding: 13px 20px;
-    border-radius: 9px;
-    font-size: 13px;
-    font-weight: 700;
-    transition: 0.2s;
+
+    text-decoration: none;
+    padding: 13px 22px;
+
+    border-radius: 7px;
+    font-weight: bold;
+
+    transition: 0.3s;
 }
 
 .header-button:hover {
-    background: var(--green);
-    transform: translateY(-2px);
+    background: #045c3d;
+    transform: translateY(-3px);
 }
+
 
 /* ГОЛОВНИЙ БАНЕР */
 
 .hero {
-    position: relative;
-    overflow: hidden;
-    min-height: 490px;
-    padding: 80px 9% 125px;
-    color: white;
+    min-height: 570px;
 
     background:
-        radial-gradient(
-            ellipse at 85% 20%,
-            rgba(67, 139, 185, 0.45),
-            transparent 40%
-        ),
         linear-gradient(
-            120deg,
-            #0b2038,
-            #123e61 65%,
-            #17658a
-        );
-}
+            90deg,
+            rgba(3, 29, 39, 0.95),
+            rgba(3, 47, 55, 0.65),
+            rgba(3, 47, 55, 0.15)
+        ),
+        url("https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=2000&q=85");
 
-.hero::before {
-    content: '🚆';
-    position: absolute;
-    right: 7%;
-    bottom: 35px;
-    font-size: clamp(100px, 18vw, 230px);
-    opacity: 0.15;
-    transform: scaleX(-1);
-    pointer-events: none;
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+
+    padding: 70px 10%;
+    color: white;
 }
 
 .hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 670px;
-    animation: appear 0.8s ease;
+    max-width: 700px;
 }
 
 .hero-label {
-    display: inline-block;
-    padding: 10px 15px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 30px;
-    background: rgba(255, 255, 255, 0.08);
-    color: #a6f2cf;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 1.4px;
-    margin-bottom: 24px;
+    color: #43d49b;
+    font-size: 14px;
+    letter-spacing: 4px;
+    font-weight: bold;
 }
 
 .hero h1 {
-    font-size: clamp(36px, 5vw, 64px);
-    line-height: 1.12;
-    letter-spacing: -2px;
-    margin-bottom: 22px;
+    font-size: 67px;
+    line-height: 1.15;
+    margin: 25px 0;
 }
 
 .hero h1 span {
-    color: #64e4ad;
+    color: #43d49b;
 }
 
-.hero-content > p {
-    max-width: 450px;
-    color: #c5d5e4;
-    font-size: 16px;
+.hero p {
+    font-size: 18px;
     line-height: 1.8;
-    margin-bottom: 32px;
-}
+    color: #d4e2e5;
 
-.hero-button {
-    display: inline-block;
-    padding: 16px 25px;
-    border-radius: 10px;
-    background: var(--green);
-    color: white;
-    font-size: 14px;
-    font-weight: 700;
-    transition: 0.25s;
-}
+    max-width: 600px;
 
-.hero-button:hover {
-    background: #1ac781;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(22, 166, 106, 0.25);
-}
-
-.hero-info {
-    position: absolute;
-    z-index: 2;
-    bottom: 0;
-    left: 9%;
-    right: 9%;
-    min-height: 95px;
-    padding: 22px 30px;
-    background: white;
-    color: var(--text);
-    border-radius: 14px 14px 0 0;
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
-}
-
-.hero-info div {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-}
-
-.hero-info strong {
-    font-size: 14px;
-}
-
-.hero-info span {
-    color: var(--muted);
-    font-size: 12px;
-}
-
-/* ЗАГОЛОВКИ */
-
-.section-heading {
-    text-align: center;
     margin-bottom: 35px;
 }
 
-.section-label {
-    display: inline-block;
-    margin-bottom: 12px;
-    color: var(--green);
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 2px;
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.green-button {
+    background: #07945c;
+    color: white;
+
+    padding: 16px 28px;
+    border-radius: 7px;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.green-button:hover {
+    background: #06b875;
+    transform: translateY(-4px);
+}
+
+.outline-button {
+    border: 2px solid white;
+    color: white;
+
+    padding: 14px 25px;
+    border-radius: 7px;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.outline-button:hover {
+    background: white;
+    color: #063d36;
+}
+
+
+/* ЗАГОЛОВКИ СЕКЦІЙ */
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-heading span {
+    color: #07945c;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
 }
 
 .section-heading h2 {
-    color: var(--blue);
-    font-size: clamp(25px, 3vw, 36px);
-    margin-bottom: 12px;
+    font-size: 36px;
+    margin: 15px 0;
+    color: #142e39;
 }
 
 .section-heading p {
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.7;
+    color: #788991;
+    font-size: 16px;
 }
 
-/* ПОШУК КВИТКІВ */
 
-.booking-section {
-    padding: 85px 7% 60px;
+/* ПОСЛУГИ */
+
+.services {
+    padding: 90px 8%;
+    background: #f4f7f8;
 }
 
-.booking-form {
-    max-width: 1150px;
-    margin: 0 auto;
-    padding: 25px;
-    display: grid;
-    grid-template-columns: 1fr 45px 1fr 1fr auto;
-    align-items: end;
-    gap: 15px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    box-shadow: 0 12px 40px rgba(16, 43, 70, 0.06);
-}
-
-.input-group {
+.service-container {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    min-width: 0;
-}
-
-.input-group label {
-    color: #52647a;
-    font-size: 12px;
-    font-weight: 700;
-}
-
-.input-group select,
-.input-group input {
-    width: 100%;
-    min-width: 0;
-    height: 49px;
-    padding: 0 12px;
-    color: var(--text);
-    background: #f8fafc;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    outline: none;
-    transition: 0.2s;
-}
-
-.input-group select:focus,
-.input-group input:focus {
-    border-color: var(--green);
-    box-shadow: 0 0 0 3px rgba(22, 166, 106, 0.1);
-}
-
-.swap-button {
-    width: 42px;
-    height: 49px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: #f8fafc;
-    color: var(--green);
-    font-size: 23px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.swap-button:hover {
-    background: #e6f8ef;
-    transform: rotate(180deg);
-}
-
-.search-button {
-    min-height: 49px;
-    padding: 0 20px;
-    border: none;
-    border-radius: 8px;
-    background: var(--green);
-    color: white;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.search-button:hover {
-    background: var(--green-hover);
-    transform: translateY(-2px);
-}
-
-/* РОЗКЛАД */
-
-.schedule-section {
-    padding: 60px 7% 80px;
-}
-
-.train-results,
-.my-tickets-list {
-    max-width: 1050px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.empty-state {
-    padding: 50px 20px;
-    text-align: center;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 15px;
-}
-
-.empty-icon {
-    margin-bottom: 15px;
-    font-size: 42px;
-}
-
-.empty-state h3 {
-    margin-bottom: 10px;
-    color: var(--blue);
-    font-size: 19px;
-}
-
-.empty-state p {
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.7;
-}
-
-.train-card {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr 1fr auto;
-    align-items: center;
-    gap: 25px;
-    padding: 25px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    transition: 0.25s;
-}
-
-.train-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(16, 43, 70, 0.07);
-    border-color: #b5e8d0;
-}
-
-.train-number {
-    display: inline-block;
-    margin-bottom: 9px;
-    color: var(--green);
-    font-size: 11px;
-    font-weight: 800;
-}
-
-.train-name {
-    color: var(--blue);
-    font-size: 15px;
-    font-weight: 800;
-}
-
-.train-route {
-    display: flex;
-    align-items: center;
-    gap: 13px;
-}
-
-.train-time {
-    color: var(--blue);
-    font-size: 22px;
-    font-weight: 800;
-}
-
-.train-city {
-    margin-top: 6px;
-    color: var(--muted);
-    font-size: 12px;
-}
-
-.route-line {
-    flex: 1;
-    min-width: 25px;
-    text-align: center;
-    color: var(--green);
-}
-
-.train-duration {
-    color: var(--muted);
-    font-size: 12px;
-    text-align: center;
-    margin-top: 8px;
-}
-
-.train-price {
-    color: var(--blue);
-    font-size: 23px;
-    font-weight: 800;
-    white-space: nowrap;
-}
-
-.train-price small {
-    font-size: 12px;
-}
-
-.buy-button {
-    padding: 13px 18px;
-    border: none;
-    border-radius: 8px;
-    background: var(--blue);
-    color: white;
-    font-size: 12px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.buy-button:hover {
-    background: var(--green);
-}
-
-/* МОЇ КВИТКИ */
-
-.my-tickets-section {
-    padding: 70px 7%;
-    background: #eaf0f6;
-}
-
-.ticket-card {
-    padding: 25px;
-    background: white;
-    border: 1px solid var(--border);
-    border-left: 5px solid var(--green);
-    border-radius: 12px;
-}
-
-.ticket-card h3 {
-    color: var(--blue);
-    margin-bottom: 14px;
-}
-
-.ticket-card p {
-    margin: 8px 0;
-    color: #657489;
-    font-size: 14px;
-    overflow-wrap: anywhere;
-}
-
-.ticket-status {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 7px 11px;
-    border-radius: 20px;
-    background: #e6f8ef;
-    color: #118653;
-    font-size: 11px;
-    font-weight: 800;
-}
-
-/* МОДАЛЬНЕ ВІКНО */
-
-.modal-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 100;
-    padding: 20px;
-    background: rgba(6, 21, 37, 0.72);
-    display: none;
-    align-items: center;
     justify-content: center;
-    overflow-y: auto;
+    gap: 25px;
+    flex-wrap: wrap;
 }
 
-.modal-overlay.active {
-    display: flex;
-}
-
-.modal {
-    position: relative;
-    width: 100%;
-    max-width: 440px;
-    padding: 35px;
+.service-card {
     background: white;
-    border-radius: 18px;
-    animation: appear 0.25s ease;
+
+    width: 320px;
+    padding: 38px 30px;
+
+    border-radius: 13px;
+
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+
+    transition: 0.3s;
+
+    border-bottom: 4px solid transparent;
 }
 
-.close-modal {
-    position: absolute;
-    top: 15px;
-    right: 18px;
-    width: 35px;
-    height: 35px;
-    border: none;
-    border-radius: 50%;
-    background: #f0f3f7;
-    color: var(--blue);
-    font-size: 25px;
-    cursor: pointer;
+.service-card:hover {
+    transform: translateY(-10px);
+    border-bottom: 4px solid #07945c;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,0.10);
 }
 
-.modal-icon {
-    margin-bottom: 15px;
-    font-size: 42px;
-}
-
-.modal h2 {
-    margin-bottom: 15px;
-    color: var(--blue);
-    font-size: 25px;
-}
-
-#selected-train-info {
+.service-icon {
+    font-size: 48px;
     margin-bottom: 25px;
-    color: var(--muted);
-    font-size: 13px;
+}
+
+.service-card h3 {
+    font-size: 22px;
+    margin-bottom: 18px;
+}
+
+.service-card p {
+    color: #72838a;
     line-height: 1.8;
+    font-size: 15px;
+
+    min-height: 80px;
+    margin-bottom: 25px;
 }
 
-#passenger-form {
+.service-card a {
+    display: inline-block;
+
+    text-decoration: none;
+    color: #078456;
+
+    font-weight: bold;
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+.service-card a:hover {
+    color: #034c34;
+    transform: translateX(5px);
+}
+
+.featured {
+    background: #e5f5ef;
+}
+
+
+/* ПОПУЛЯРНІ НАПРЯМКИ */
+
+.directions {
+    padding: 90px 8%;
+    background: white;
+}
+
+.direction-container {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
 }
 
-#passenger-form .search-button {
-    width: 100%;
+.direction-card {
+    background: #f4f8f8;
+
+    width: 320px;
+
+    border-radius: 12px;
+    overflow: hidden;
+
+    transition: 0.3s;
 }
 
-.demo-notice {
-    margin-top: 20px;
-    color: var(--muted);
-    font-size: 11px;
-    text-align: center;
+.direction-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.09);
+}
+
+.direction-top {
+    height: 150px;
+
+    background: linear-gradient(135deg, #075d50, #137b98);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 65px;
+}
+
+.direction-info {
+    padding: 25px;
+}
+
+.direction-info span {
+    color: #078456;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.direction-info h3 {
+    font-size: 23px;
+    margin: 12px 0;
+}
+
+.direction-info p {
+    color: #75868d;
     line-height: 1.6;
 }
 
-/* ПІДВАЛ */
 
-.footer {
-    padding: 45px 7%;
-    background: #0b2038;
-    color: #b8c7d7;
-    text-align: center;
-}
+/* ВЕЛИКИЙ РЕКЛАМНИЙ БАНЕР */
 
-.footer-logo {
-    justify-content: center;
-    margin-bottom: 18px;
+.big-ad {
+    min-height: 380px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 35, 42, 0.95),
+            rgba(3, 57, 60, 0.65)
+        ),
+        url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1800&q=85");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+
+    padding: 65px 10%;
     color: white;
 }
 
-.footer > p {
-    margin-top: 13px;
+.ad-content span {
+    color: #43d49b;
     font-size: 13px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.ad-content h2 {
+    font-size: 38px;
+    margin: 20px 0;
+    line-height: 1.4;
+}
+
+.ad-content p {
+    color: #d5e2e3;
+    margin-bottom: 30px;
+    font-size: 17px;
+}
+
+.ad-content a {
+    display: inline-block;
+
+    background: #07945c;
+    color: white;
+
+    padding: 15px 28px;
+
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.ad-content a:hover {
+    background: #06b875;
+    transform: translateY(-3px);
+}
+
+
+/* РЕКЛАМНІ КАРТКИ */
+
+.advertising {
+    padding: 90px 8%;
+}
+
+.ad-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.ad-card {
+    background: white;
+
+    width: 320px;
+    padding: 35px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+
+    transition: 0.3s;
+}
+
+.ad-card:hover {
+    transform: translateY(-7px);
+}
+
+.ad-icon {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.ad-card h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.ad-card p {
+    color: #778990;
     line-height: 1.7;
 }
 
-.footer-small {
-    color: #91a5b9;
-    font-size: 11px !important;
+
+/* ПІДВАЛ */
+
+footer {
+    background: #0b202b;
+    color: white;
+
+    padding: 65px 8% 25px;
 }
 
-/* АНІМАЦІЇ */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 40px;
+    flex-wrap: wrap;
+
+    margin-bottom: 55px;
+}
+
+.footer-about {
+    max-width: 270px;
+}
+
+.footer-about h2 {
+    color: #43d49b;
+    font-size: 29px;
+    margin-bottom: 20px;
+}
+
+.footer-about p {
+    color: #aabcc3;
+    line-height: 1.8;
+}
+
+.footer-links h3 {
+    margin-bottom: 22px;
+    font-size: 18px;
+}
+
+.footer-links a {
+    display: block;
+
+    color: #aabcc3;
+    text-decoration: none;
+
+    margin: 15px 0;
+
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #43d49b;
+    transform: translateX(5px);
+}
+
+.footer-bottom {
+    border-top: 1px solid #29414c;
+
+    padding-top: 25px;
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    color: #91a5ad;
+    font-size: 14px;
+}
+
+.footer-bottom a {
+    color: #43d49b;
+    text-decoration: none;
+}
+
+
+/* АНІМАЦІЯ */
 
 @keyframes appear {
     from {
         opacity: 0;
-        transform: translateY(15px);
+        transform: translateY(30px);
     }
 
     to {
@@ -632,136 +540,83 @@ select {
     }
 }
 
-/* АДАПТИВНІСТЬ */
-
-@media (max-width: 1050px) {
-    .header {
-        padding: 0 4%;
-    }
-
-    .navigation {
-        gap: 15px;
-    }
-
-    .booking-form {
-        grid-template-columns: 1fr 42px 1fr;
-    }
-
-    .booking-form .input-group:nth-of-type(3) {
-        grid-column: 1 / 3;
-    }
-
-    .booking-form .search-button {
-        grid-column: 3;
-    }
-
-    .train-card {
-        grid-template-columns: 1fr 1.5fr;
-    }
-
-    .train-price {
-        align-self: center;
-    }
-
-    .buy-button {
-        justify-self: end;
-    }
+.hero-content {
+    animation: appear 1s ease;
 }
 
-@media (max-width: 700px) {
-    .header {
-        min-height: 75px;
+
+/* АДАПТАЦІЯ ДЛЯ ТЕЛЕФОНІВ */
+
+@media (max-width: 900px) {
+
+    header {
         height: auto;
-        padding: 18px 5%;
+        padding: 22px 5%;
         flex-wrap: wrap;
+        gap: 20px;
     }
 
-    .logo {
-        font-size: 20px;
-    }
-
-    .navigation {
-        order: 3;
-        width: 100%;
-        justify-content: center;
+    nav {
+        gap: 15px;
         flex-wrap: wrap;
-        gap: 15px 20px;
-    }
-
-    .navigation a {
-        font-size: 12px;
-    }
-
-    .header-button {
-        padding: 11px 13px;
-        font-size: 11px;
-    }
-
-    .hero {
-        min-height: 520px;
-        padding: 65px 6% 145px;
     }
 
     .hero h1 {
-        letter-spacing: -1px;
+        font-size: 48px;
     }
 
-    .hero-info {
-        left: 0;
-        right: 0;
-        padding: 18px 5%;
-        gap: 12px;
+    .section-heading h2 {
+        font-size: 29px;
     }
 
-    .hero-info strong {
-        font-size: 12px;
+    .footer-bottom {
+        flex-direction: column;
     }
 
-    .hero-info span {
-        font-size: 10px;
-        line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+
+    header {
+        flex-direction: column;
     }
 
-    .booking-section,
-    .schedule-section,
-    .my-tickets-section {
-        padding: 55px 5%;
+    nav {
+        justify-content: center;
     }
 
-    .booking-form {
-        grid-template-columns: 1fr;
-        padding: 20px;
+    .hero {
+        padding: 65px 7%;
     }
 
-    .booking-form .input-group:nth-of-type(3),
-    .booking-form .search-button {
-        grid-column: auto;
+    .hero h1 {
+        font-size: 39px;
     }
 
-    .swap-button {
-        justify-self: center;
-        transform: rotate(90deg);
+    .hero p {
+        font-size: 16px;
     }
 
-    .swap-button:hover {
-        transform: rotate(270deg);
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    .train-card {
-        grid-template-columns: 1fr;
-        gap: 18px;
-        padding: 22px;
+    .service-container,
+    .direction-container,
+    .ad-container {
+        align-items: center;
+        flex-direction: column;
     }
 
-    .train-route {
-        max-width: 100%;
-    }
-
-    .buy-button {
+    .service-card,
+    .direction-card,
+    .ad-card {
         width: 100%;
     }
 
-    .modal {
-        padding: 30px 22px;
+    .ad-content h2 {
+        font-size: 29px;
     }
+
 }
